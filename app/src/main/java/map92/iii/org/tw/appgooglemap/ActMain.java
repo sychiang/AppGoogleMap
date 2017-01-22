@@ -17,6 +17,7 @@ import com.androidnetworking.interfaces.ParsedRequestListener;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -78,6 +79,7 @@ public class ActMain extends AppCompatActivity {
 
         //LatLng gpsKHS = new LatLng(22.6285339,120.2930492);    //設定經緯度
         final GoogleMap map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();   //取得地圖
+
         //Marker l_markKHStation = map.addMarker(new MarkerOptions().position(gpsKHS).title("我的位置").snippet("")); //設地標
         //map.moveCamera( CameraUpdateFactory.newLatLngZoom(gpsKHS, 16) );      //設定顯示大小
 
@@ -102,7 +104,10 @@ public class ActMain extends AppCompatActivity {
                             double latitude = addressLocation.get(0).getLatitude();
                             double longitude = addressLocation.get(0).getLongitude();
                             LatLng gps = new LatLng(latitude,longitude);    //設定經緯度
-                            Marker marker = map.addMarker(new MarkerOptions().position(gps).title(rb.get機構名稱()).snippet("")); //設地標
+                            Marker marker = map.addMarker(new MarkerOptions().position(gps)
+                                    .title(rb.get機構名稱())
+                                    .snippet(rb.get機構電話())
+                                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.dog_icon))); //設地標
                             map.moveCamera( CameraUpdateFactory.newLatLngZoom(gps, 16) );      //設定顯示大小
                         }
                     } else {
