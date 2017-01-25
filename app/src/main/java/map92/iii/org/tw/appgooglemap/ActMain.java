@@ -107,7 +107,7 @@ public class ActMain extends AppCompatActivity {
                             Marker marker = map.addMarker(new MarkerOptions().position(gps)
                                     .title(rb.get機構名稱())
                                     .snippet(rb.get機構電話())
-                                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.dog_icon))); //設地標
+                                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.pawprint))); //設地標
                             map.moveCamera( CameraUpdateFactory.newLatLngZoom(gps, 16) );      //設定顯示大小
                         }
                     } else {
